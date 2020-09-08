@@ -10,7 +10,6 @@
         <e p="Demigiant" t="Include">
           <e p="DOTween" t="Include">
             <e p="Modules" t="Include">
-              <e p="DOTween.Modules.asmdef" t="Include" />
               <e p="DOTweenModuleAudio.cs" t="Include" />
               <e p="DOTweenModulePhysics.cs" t="Include" />
               <e p="DOTweenModulePhysics2D.cs" t="Include" />
@@ -27,40 +26,10 @@
             <e p="GradientSkybox.shader" t="Include" />
           </e>
         </e>
-        <e p="Rotary Heart" t="Include">
-          <e p="SerializableDictionaryLite" t="Include">
-            <e p="DrawKeyAsPropertyAttribute.cs" t="Include" />
-            <e p="Editor" t="Include">
-              <e p="Constants.cs" t="Include" />
-              <e p="Definer.cs" t="Include" />
-              <e p="DictionaryPropertyDrawer.cs" t="Include" />
-              <e p="PreferencesWindow.cs" t="Include" />
-              <e p="SupportWindow.cs" t="Include" />
-            </e>
-            <e p="Example" t="Include">
-              <e p="DataBaseExample.cs" t="Include" />
-              <e p="NestedDB.cs" t="Include" />
-            </e>
-            <e p="IDAttribute.cs" t="Include" />
-            <e p="References" t="Include">
-              <e p="RequiredReferences.cs" t="Include" />
-            </e>
-            <e p="ReorderableList" t="Include">
-              <e p="ReorderableList.cs" t="Include" />
-            </e>
-            <e p="SerializableDictionaryBase.cs" t="Include" />
-          </e>
-          <e p="Shared" t="Include">
-            <e p="Editor" t="Include">
-              <e p="BaseSupportWindow.cs" t="Include" />
-              <e p="Definer.cs" t="Include" />
-              <e p="RotaryHeart.Editor.asmdef" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="Enums" t="Include">
             <e p="CanvasType.cs" t="Include" />
+            <e p="GameState.cs" t="Include" />
             <e p="StartType.cs" t="Include" />
           </e>
           <e p="Helper.cs" t="Include" />
@@ -110,8 +79,58 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="Thirdparty" t="Include">
+          <e p="ParticleEffectUI" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Coffee.UIParticle.asmdef" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="AsmdefEx.cs" t="Include" />
+                <e p="Coffee.UIParticle.Editor.asmdef" t="Include" />
+                <e p="UIParticleEditor.cs" t="Include" />
+                <e p="UIParticleMenu.cs" t="Include" />
+              </e>
+              <e p="UIParticle.cs" t="Include" />
+              <e p="UIParticleOverlayCamera.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="UIAdditive.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Rotary Heart" t="Include">
+            <e p="SerializableDictionaryLite" t="Include">
+              <e p="DrawKeyAsPropertyAttribute.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="Constants.cs" t="Include" />
+                <e p="Definer.cs" t="Include" />
+                <e p="DictionaryPropertyDrawer.cs" t="Include" />
+                <e p="PreferencesWindow.cs" t="Include" />
+                <e p="SupportWindow.cs" t="Include" />
+              </e>
+              <e p="Example" t="Include">
+                <e p="DataBaseExample.cs" t="Include" />
+                <e p="NestedDB.cs" t="Include" />
+              </e>
+              <e p="IDAttribute.cs" t="Include" />
+              <e p="References" t="Include">
+                <e p="RequiredReferences.cs" t="Include" />
+              </e>
+              <e p="ReorderableList" t="Include">
+                <e p="ReorderableList.cs" t="Include" />
+              </e>
+              <e p="SerializableDictionaryBase.cs" t="Include" />
+            </e>
+            <e p="Shared" t="Include">
+              <e p="Editor" t="Include">
+                <e p="BaseSupportWindow.cs" t="Include" />
+                <e p="Definer.cs" t="Include" />
+                <e p="RotaryHeart.Editor.asmdef" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
       </e>
-      <e p="DOTween.Modules.csproj" t="IncludeRecursive" />
+      <e p="Coffee.UIParticle.csproj" t="IncludeRecursive" />
+      <e p="Coffee.UIParticle.Editor.csproj" t="IncludeRecursive" />
       <e p="GameTemplate.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

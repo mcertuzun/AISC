@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace InputSystem
@@ -48,8 +47,6 @@ namespace InputSystem
                 Debug.Log("Stationary");
             }
         }
-
-        
 
         public void MovementController()
         {

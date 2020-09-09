@@ -11,7 +11,6 @@ namespace Managers
         //<summary>
         //State Pattern separates the states of a Game and these are in the GameState enum file.
         //<summary>
-
         #region State Pattern
 
         [Header("Current game state")] private GameState _gameState = GameState.Prepare;
@@ -60,27 +59,23 @@ namespace Managers
         [Header("Game Settings Config")]
         [Tooltip("Use 60 for games requiring smooth quick motion, set -1 to use platform default frame rate")]
         public int targetFrameRate = 60;
-
         public static int GameCount { get; private set; } = 0;
         private static bool _isRestart;
 
-
         //General header for reference objects
-        [Header("Object References")] public GameObject gameObject;
+        [Header("Object References")] 
+        public GameObject gameObject;
 
-
-        //Header for game configurations
-        [Header("GamePlay Config")] public float playerSpeed = 60;
-
-
+        
+        
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             CanvasManager?.Invoke();
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
         }
 

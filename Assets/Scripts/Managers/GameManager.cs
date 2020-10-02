@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Enums;
+using InputSystem;
 
 namespace Managers
 {
@@ -64,27 +65,33 @@ namespace Managers
 
         //General header for reference objects
         [Header("Object References")] 
-        public GameObject gameObject;
-
-        
+        public GameObject gameObjects;
         
         // Start is called before the first frame update
         private void Start()
         {
+            CanvasManagerSetup();
+        }
+
+        private static void CanvasManagerSetup()
+        {
+            if (CanvasManager == null)
+            {
+                Debug.Log("Master Canvas Instantiated");
+                var canvasManager = Resources.Load<GameObject>("UI/Prefabs/Master/MasterCanvas");
+                Debug.Log(canvasManager.name);
+                Instantiate(canvasManager);
+            }
+
             CanvasManager?.Invoke();
         }
 
         // Update is called once per frame
         private void Update()
         {
+                
+            
         }
 
-        public static void That(Func<bool> check)
-        {
-            if (!check())
-            {
-                throw new ArgumentException("Invalid");
-            }
-        }
     }
 }

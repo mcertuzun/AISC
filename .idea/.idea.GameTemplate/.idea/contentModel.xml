@@ -38,6 +38,7 @@
             <e p="ShakeType.cs" t="Include" />
             <e p="StartType.cs" t="Include" />
           </e>
+          <e p="example.cs" t="Include" />
           <e p="Helper.cs" t="Include" />
           <e p="InputSystem" t="Include">
             <e p="InputController.cs" t="Include" />
@@ -51,6 +52,7 @@
           </e>
           <e p="Util" t="Include">
             <e p="HapticFeedback.cs" t="Include" />
+            <e p="PlayerPrefsX.cs" t="Include" />
           </e>
           <e p="WaitForFrames.cs" t="Include" />
         </e>

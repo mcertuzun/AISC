@@ -11,18 +11,8 @@ namespace Managers
         [Header("General Options")] [Tooltip("Choose the begging action")]
         public StartType chooseStartType;
 
-        [Header("Canvases")] 
-         private Dictionary<CanvasType, Canvas> allCanvasesEnum;
-         private Dictionary<StartType, List<Canvas>> canvasListEnum;
-
-        /*
-        [System.Serializable]
-        public class EnumCanvas : SerializableDictionaryBase<StartType, List<Canvas>>
-        {
-        };
-
-        [Tooltip("Chosen canvases")] public EnumCanvas canvasListEnum;
-        */
+        [Header("Canvases")] private Dictionary<CanvasType, Canvas> allCanvasesEnum;
+        private Dictionary<StartType, List<Canvas>> canvasListEnum;
 
         #region DontDestroyOnLoad
 
@@ -55,12 +45,6 @@ namespace Managers
             GameManager.CanvasManager -= OpenCanvasManager;
         }
 
-        private void Start()
-        {
-            CanvasInitializer();
-            InitStartingOptions();
-        }
-
         private void OpenCanvasManager()
         {
             CanvasInitializer();
@@ -74,10 +58,10 @@ namespace Managers
 
             if (childCanvases.Length == 0)
             {
-                Debug.LogWarning("Warning: Canvases didnt load!");
+                Debug.LogWarning("Warning: Canvases didn't load!");
                 return;
             }
-
+            allCanvasesEnum.Clear();
             foreach (var childCanvas in childCanvases)
             {
                 AddEnumList(childCanvas);
@@ -87,9 +71,8 @@ namespace Managers
         private void AddEnumList(Canvas childCanvas)
         {
             var checkParse = Enum.TryParse(childCanvas.name, out CanvasType canvasType);
-            (checkParse
-                ? new Action(() => allCanvasesEnum.Add(canvasType, childCanvas))
-                : () => Debug.LogWarning("Warning: CanvasType Enum name is not compatible with the canvas name."))();
+            (checkParse ? new Action(
+                () => allCanvasesEnum.Add(canvasType, childCanvas)) : () => Debug.LogWarning("Warning: CanvasType Enum name is not compatible with the canvas name."))();
         }
 
         //TODO: Optimize InitStartingOptions() Method
@@ -99,19 +82,26 @@ namespace Managers
 
             foreach (StartType startType in startTypes)
             {
-                var list = new List<Canvas>();
+                var list = new List<Canvas>
+                {
+                    allCanvasesEnum[CanvasType.InGameCanvas],
+                    allCanvasesEnum[CanvasType.WinCanvas],
+                    allCanvasesEnum[CanvasType.FailCanvas],
+                    allCanvasesEnum[CanvasType.SettingsCanvas]
+                };
 
-                list.Add(allCanvasesEnum[CanvasType.InGameCanvas]);
-                list.Add(allCanvasesEnum[CanvasType.WinCanvas]);
-                list.Add(allCanvasesEnum[CanvasType.FailCanvas]);
-                list.Add(allCanvasesEnum[CanvasType.SettingsCanvas]);
-                if (startType.Equals(StartType.Menu))
+                switch (startType)
                 {
-                    list.Add(allCanvasesEnum[CanvasType.MainCanvas]);
-                }
-                if (startType.Equals(StartType.Splash))
-                {
-                    list.Add(allCanvasesEnum[CanvasType.SplashCanvas]);
+                    case StartType.Menu:
+                        list.Add(allCanvasesEnum[CanvasType.MainCanvas]);
+                        break;
+                    case StartType.Splash:
+                        list.Add(allCanvasesEnum[CanvasType.SplashCanvas]);
+                        break;
+                    case StartType.Direct:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
                 canvasListEnum.Add(startType, list);
             }
@@ -121,22 +111,12 @@ namespace Managers
 
         private void SetActivations()
         {
+            //Set gameObject is enabled or disabled.
             foreach (var canvas in allCanvasesEnum.Values)
             {
-                Debug.Log(canvasListEnum[chooseStartType].Count);
-                if (canvasListEnum[chooseStartType].Contains(canvas))
-                {
-                    canvas.gameObject.SetActive(true);
-                }
-                else
-                {
-                    canvas.gameObject.SetActive(false);
-                }
+                Debug.Log($"canvas list count: {canvasListEnum[chooseStartType].Count}");
+                canvas.gameObject.SetActive(canvasListEnum[chooseStartType].Contains(canvas));
             }
         }
-
-        #region SplashScreen
-
-        #endregion
     }
 }

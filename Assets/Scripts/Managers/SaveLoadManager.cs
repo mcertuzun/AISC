@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Enums;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Util;
 
 namespace Managers
@@ -12,6 +8,7 @@ namespace Managers
     {
         private bool isReset;
         public int lastSaveIndex;
+        //Get hasTutorial from the level manager
         public bool hasTutorial;
         public int tutorialLevelIndex = 1; 
         
@@ -33,7 +30,6 @@ namespace Managers
             else
             {
                 _instance = this;
-                LoadLastSaveIndex();
                 DontDestroyOnLoad(gameObject);
             }
         }
@@ -47,10 +43,19 @@ namespace Managers
         }
 
         #endregion
+        
+        private void OnEnable()
+        {
+            GameManager.SaveLoadManager += LoadLastSaveIndex;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.SaveLoadManager -= LoadLastSaveIndex;
+        }
 
         private void LoadLastSaveIndex()
         {
-          
             lastSaveIndex = PlayerPrefs.GetInt("nextSceneIndex");
             if (hasTutorial && lastSaveIndex > tutorialLevelIndex)
             {
@@ -63,6 +68,10 @@ namespace Managers
         public void PassTheLevel()
         {
             var nextLevelIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+            if (nextLevelIndex == SceneManager.sceneCountInBuildSettings - 1)
+            {
+                Debug.LogWarning(" You reached the max level! ");
+            }
             PlayerPrefs.SetInt("nextSceneIndex", nextLevelIndex);
         }
 
@@ -76,7 +85,7 @@ namespace Managers
             PlayerPrefs.DeleteAll();
             isReset = true;
         }
-
+        
         private void OnApplicationQuit()
         {
             PlayerPrefs.SetInt("nextSceneIndex", SceneManager.GetActiveScene().buildIndex);

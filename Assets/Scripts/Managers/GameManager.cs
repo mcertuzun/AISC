@@ -8,7 +8,8 @@ namespace Managers
     public class GameManager : MonoBehaviour
     {
         public static event Action CanvasManager;
-
+        public static event Action SaveLoadManager;
+    
         //<summary>
         //State Pattern separates the states of a Game and these are in the GameState enum file.
         //<summary>
@@ -46,6 +47,7 @@ namespace Managers
             }
             else
             {
+                ManagersSetup();
                 _instance = this;
             }
         }
@@ -60,31 +62,53 @@ namespace Managers
         [Header("Game Settings Config")]
         [Tooltip("Use 60 for games requiring smooth quick motion, set -1 to use platform default frame rate")]
         public int targetFrameRate = 60;
+        [Tooltip("Open/Close save load system")]
+        public bool saveLoadActive = true;
+        [Tooltip("Open/Close UI system")]
+        public bool canvasActive = true;
         public static int GameCount { get; private set; } = 0;
         private static bool _isRestart;
+      
 
         //General header for reference objects
         [Header("Object References")] 
         public GameObject gameObjects;
-        
-        // Start is called before the first frame update
-        private void Start()
-        {
-            CanvasManagerSetup();
-        }
 
-        private static void CanvasManagerSetup()
+        #region Managers Setup
+
+        private void ManagersSetup()
         {
-            if (CanvasManager == null)
+            SaveLoadInstantiate();
+            CanvasInstantiate();
+        }
+        private void CanvasInstantiate()
+        {
+            Debug.LogWarning($"canvasManager {CanvasManager == null } && {canvasActive}");
+
+            if (CanvasManager == null && canvasActive)
             {
-                Debug.Log("Master Canvas Instantiated");
-                var canvasManager = Resources.Load<GameObject>("UI/Prefabs/Master/MasterCanvas");
-                Debug.Log(canvasManager.name);
+                var canvasManager = Resources.Load<GameObject>("Managers/MasterCanvas");
+                Debug.LogWarning($"{canvasManager.name} Instantiated");
                 Instantiate(canvasManager);
             }
-
             CanvasManager?.Invoke();
         }
+
+        private void SaveLoadInstantiate()
+        {
+            Debug.LogWarning($"SaveLoadInstantiate {SaveLoadManager == null} && {saveLoadActive}");
+
+            if (SaveLoadManager == null && saveLoadActive)
+            {
+                var saveLoadManager = Resources.Load<GameObject>("Managers/SaveLoadManager");
+                Debug.LogWarning($"{saveLoadManager.name} Instantiated");
+                Instantiate(saveLoadManager);
+            }
+            SaveLoadManager?.Invoke();
+        }
+
+        #endregion
+
 
         // Update is called once per frame
         private void Update()

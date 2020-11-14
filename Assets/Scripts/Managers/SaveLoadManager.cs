@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Util;
 
@@ -6,24 +7,18 @@ namespace Managers
 {
     public class SaveLoadManager : MonoBehaviour
     {
-        private bool isReset;
+        public bool loopModeActive;
         public int lastSaveIndex;
         //Get hasTutorial from the level manager
         public bool hasTutorial;
         public int tutorialLevelIndex = 1; 
         
-        #region Singleton
+        #region Single Object
 
         private static SaveLoadManager _instance;
-
-        public static SaveLoadManager Instance
-        {
-            get { return _instance; }
-        }
-
         private void Awake()
         {
-            if (Instance != null)
+            if (_instance != null)
             {
                 Destroy(gameObject);
             }
@@ -44,15 +39,7 @@ namespace Managers
 
         #endregion
         
-        private void OnEnable()
-        {
-            GameManager.SaveLoadManager += LoadLastSaveIndex;
-        }
-
-        private void OnDisable()
-        {
-            GameManager.SaveLoadManager -= LoadLastSaveIndex;
-        }
+       
 
         private void LoadLastSaveIndex()
         {
@@ -64,26 +51,34 @@ namespace Managers
             Debug.LogWarning($"The last save index is {lastSaveIndex}");
             SceneManager.LoadScene((lastSaveIndex));
         }
-
-        public void PassTheLevel()
+        
+        
+        
+        public static void Save<T>(T value) where T : Component
         {
-            var nextLevelIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
-            if (nextLevelIndex == SceneManager.sceneCountInBuildSettings - 1)
-            {
-                Debug.LogWarning(" You reached the max level! ");
-            }
-            PlayerPrefs.SetInt("nextSceneIndex", nextLevelIndex);
+            Save(value);
+        } 
+        
+        public static void Save(GameObject obj)
+        {
+            GameObject prefab;
+           
         }
-
-        public void SaveTheLevel(int num)
+        public void Save(int num)
         {
             PlayerPrefs.SetInt("nextSceneIndex", num);
         }
+        
+     
+       
 
+        public static void SaveAs<T>(string name, T value)
+        {
+          
+        }
         public void ResetHistory()
         {
             PlayerPrefs.DeleteAll();
-            isReset = true;
         }
         
         private void OnApplicationQuit()

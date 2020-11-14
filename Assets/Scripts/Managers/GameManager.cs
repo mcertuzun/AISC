@@ -9,10 +9,12 @@ namespace Managers
     {
         public static event Action CanvasManager;
         public static event Action SaveLoadManager;
-    
+        public static event Action LevelManager;
+
         //<summary>
         //State Pattern separates the states of a Game and these are in the GameState enum file.
         //<summary>
+
         #region State Pattern
 
         [Header("Current game state")] private GameState _gameState = GameState.Prepare;
@@ -62,17 +64,16 @@ namespace Managers
         [Header("Game Settings Config")]
         [Tooltip("Use 60 for games requiring smooth quick motion, set -1 to use platform default frame rate")]
         public int targetFrameRate = 60;
+
         [Tooltip("Open/Close save load system")]
         public bool saveLoadActive = true;
-        [Tooltip("Open/Close UI system")]
-        public bool canvasActive = true;
+
+        [Tooltip("Open/Close UI system")] public bool canvasActive = true;
         public static int GameCount { get; private set; } = 0;
         private static bool _isRestart;
-      
 
         //General header for reference objects
-        [Header("Object References")] 
-        public GameObject gameObjects;
+        [Header("Object References")] public GameObject gameObjects;
 
         #region Managers Setup
 
@@ -81,29 +82,28 @@ namespace Managers
             SaveLoadInstantiate();
             CanvasInstantiate();
         }
+
         private void CanvasInstantiate()
         {
-            Debug.LogWarning($"canvasManager {CanvasManager == null } && {canvasActive}");
-
             if (CanvasManager == null && canvasActive)
             {
                 var canvasManager = Resources.Load<GameObject>("Managers/MasterCanvas");
                 Debug.LogWarning($"{canvasManager.name} Instantiated");
                 Instantiate(canvasManager);
             }
+
             CanvasManager?.Invoke();
         }
 
         private void SaveLoadInstantiate()
         {
-            Debug.LogWarning($"SaveLoadInstantiate {SaveLoadManager == null} && {saveLoadActive}");
-
             if (SaveLoadManager == null && saveLoadActive)
             {
                 var saveLoadManager = Resources.Load<GameObject>("Managers/SaveLoadManager");
                 Debug.LogWarning($"{saveLoadManager.name} Instantiated");
                 Instantiate(saveLoadManager);
             }
+
             SaveLoadManager?.Invoke();
         }
 
@@ -113,9 +113,6 @@ namespace Managers
         // Update is called once per frame
         private void Update()
         {
-                
-            
         }
-
     }
 }

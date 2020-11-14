@@ -272,6 +272,9 @@
  <Reference Include="DOTweenEditor">
  <HintPath>E:/BitBucket/GameProjects/GameTemplate/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
+ <Reference Include="FullSerializer">
+ <HintPath>E:/BitBucket/GameProjects/GameTemplate/Assets/Scripts/SaveLoad/Serializers/FullSerializer/FullSerializer.dll</HintPath>
+ </Reference>
  <Reference Include="nunit.framework">
  <HintPath>E:/BitBucket/GameProjects/GameTemplate/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>

@@ -6,6 +6,7 @@ namespace DefaultNamespace
 {
     public class example :MonoBehaviour
     {
+        
         public void OnClickNext()
         {
             SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);

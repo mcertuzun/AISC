@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enums;
 using RotaryHeart.Lib.SerializableDictionary;
+using Util;
+using Object = UnityEngine.Object;
 
 namespace Managers
 {
@@ -13,28 +15,30 @@ namespace Managers
 
         [Header("Canvases")] private Dictionary<CanvasType, Canvas> allCanvasesEnum;
         private Dictionary<StartType, List<Canvas>> canvasListEnum;
-
+        
         #region DontDestroyOnLoad
 
-        private static CanvasManager instance;
+        private static CanvasManager _instance;
 
         private void Awake()
         {
-            if (instance != null)
+            if (_instance != null)
             {
                 Destroy(gameObject);
             }
             else
             {
-                instance = this;
+                _instance = this;
                 allCanvasesEnum = new Dictionary<CanvasType, Canvas>();
                 canvasListEnum = new Dictionary<StartType, List<Canvas>>();
                 DontDestroyOnLoad(gameObject);
             }
         }
-
+        private void OnDestroy()
+        {
+            if (_instance == this) _instance = null;
+        }
         #endregion
-
         private void OnEnable()
         {
             GameManager.CanvasManager += OpenCanvasManager;
@@ -117,6 +121,23 @@ namespace Managers
                 Debug.Log($"canvas list count: {canvasListEnum[chooseStartType].Count}");
                 canvas.gameObject.SetActive(canvasListEnum[chooseStartType].Contains(canvas));
             }
+        }
+
+        public void OnClickStart()
+        {
+            
+        }
+        public void OnClickRestart()
+        {
+            
+        }
+        public void OnClickPause()
+        {
+            
+        }
+        public void OnClickExit()
+        {
+            
         }
     }
 }

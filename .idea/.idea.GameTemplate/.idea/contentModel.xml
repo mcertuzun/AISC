@@ -39,7 +39,6 @@
             <e p="StartType.cs" t="Include" />
           </e>
           <e p="example.cs" t="Include" />
-          <e p="Helper.cs" t="Include" />
           <e p="InputSystem" t="Include">
             <e p="InputController.cs" t="Include" />
             <e p="InputData.cs" t="Include" />
@@ -50,11 +49,40 @@
             <e p="LevelManager.cs" t="Include" />
             <e p="SaveLoadManager.cs" t="Include" />
           </e>
-          <e p="Util" t="Include">
-            <e p="HapticFeedback.cs" t="Include" />
-            <e p="PlayerPrefsX.cs" t="Include" />
+          <e p="SaveLoad" t="Include">
+            <e p="DataTypes" t="Include">
+              <e p="Color32Save.cs" t="Include" />
+              <e p="ColorSave.cs" t="Include" />
+              <e p="MeshSave.cs" t="Include" />
+              <e p="QuaternionSave.cs" t="Include" />
+              <e p="Vector2Save.cs" t="Include" />
+              <e p="Vector3Save.cs" t="Include" />
+              <e p="Vector4Save.cs" t="Include" />
+            </e>
+            <e p="Encoders" t="Include">
+              <e p="IEncoder.cs" t="Include" />
+              <e p="SimpleEncoder.cs" t="Include" />
+            </e>
+            <e p="SaveGame.cs" t="Include" />
+            <e p="Serializers" t="Include">
+              <e p="BinarySerializer.cs" t="Include" />
+              <e p="FullSerializer" t="Include">
+                <e p="FullSerializer.xml" t="Include" />
+              </e>
+              <e p="ISerializer.cs" t="Include" />
+              <e p="JsonSerializer.cs" t="Include" />
+              <e p="XmlSerializer.cs" t="Include" />
+            </e>
           </e>
-          <e p="WaitForFrames.cs" t="Include" />
+          <e p="Util" t="Include">
+            <e p="Draw.cs" t="Include" />
+            <e p="DrawExample.cs" t="Include" />
+            <e p="HapticFeedback.cs" t="Include" />
+            <e p="Helper.cs" t="Include" />
+            <e p="ObjectPool.cs" t="Include" />
+            <e p="PlayerPrefsX.cs" t="Include" />
+            <e p="PoolTest.cs" t="Include" />
+          </e>
         </e>
         <e p="Simple UI" t="Include">
           <e p="Fonts" t="Include">

@@ -18,6 +18,20 @@ namespace Util
         public GameObject prefab;
         public SpawnType spawnType;
         private float timer;
+
+        private string[] intArray = new string[]
+        {
+            "bir", 
+            "iki", 
+            "uc"
+        };
+
+        private List<float> floatList = new List<float>()
+        {
+            1.0f,
+            2.0f,
+            3.0f
+        }; 
         public enum SpawnType
         {
             OnClick,
@@ -35,7 +49,6 @@ namespace Util
                     StartCoroutine(prefab.InternalDeSpawnAfterDelay(transform.position, 1));
                 }
             }
-            pooledList = ObjectPool.instance.pooledObjects[prefab];
             spawnedCount = ObjectPool.CountSpawned(prefab);
             pooledCount = ObjectPool.CountPooled(prefab);
             

@@ -7,9 +7,9 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        public static event Action CanvasManager;
-        public static event Action SaveLoadManager;
-        public static event Action LevelManager;
+        public static event System.Action CanvasManager;
+        public static event System.Action SaveLoadManager;
+        public static event System.Action LevelManager;
 
         //<summary>
         //State Pattern separates the states of a Game and these are in the GameState enum file.

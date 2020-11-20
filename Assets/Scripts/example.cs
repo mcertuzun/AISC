@@ -19,4 +19,19 @@ namespace DefaultNamespace
                 Debug.LogWarning($"{(SceneManager.GetActiveScene().buildIndex)} is the least index");
         }
     }
+
+    [Serializable]
+    public class Employe
+    {
+        private int _id;
+        private string _name;
+        private string _country;
+
+        public Employe(int id, string name, string country)
+        {
+            _id = id;
+            _name = name;
+            _country = country;
+        }
+    }
 }

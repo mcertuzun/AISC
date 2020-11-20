@@ -23,6 +23,7 @@
           </e>
         </e>
         <e p="Resources" t="Include">
+          <e p="GameEvent.cs" t="Include" />
           <e p="Shaders" t="Include">
             <e p="GradientSkybox.shader" t="Include" />
           </e>
@@ -39,6 +40,10 @@
             <e p="StartType.cs" t="Include" />
           </e>
           <e p="example.cs" t="Include" />
+          <e p="GameEventSystem" t="Include">
+            <e p="DemoEventListener.cs" t="Include" />
+            <e p="GameEventListener.cs" t="Include" />
+          </e>
           <e p="InputSystem" t="Include">
             <e p="InputController.cs" t="Include" />
             <e p="InputData.cs" t="Include" />
@@ -73,6 +78,26 @@
               <e p="JsonSerializer.cs" t="Include" />
               <e p="XmlSerializer.cs" t="Include" />
             </e>
+          </e>
+          <e p="StateMachineAI" t="Include">
+            <e p="Actions" t="Include">
+              <e p="Actıon.cs" t="Include" />
+              <e p="AttackAction.cs" t="Include" />
+              <e p="ChaseAction.cs" t="Include" />
+              <e p="PatrolAction.cs" t="Include" />
+            </e>
+            <e p="Decision" t="Include">
+              <e p="Decide.cs" t="Include" />
+              <e p="Decision.cs" t="Include" />
+              <e p="LookDecision.cs" t="Include" />
+              <e p="ScanDecision.cs" t="Include" />
+            </e>
+            <e p="EnemyStats.cs" t="Include" />
+            <e p="States" t="Include">
+              <e p="State.cs" t="Include" />
+              <e p="StateController.cs" t="Include" />
+            </e>
+            <e p="Transition.cs" t="Include" />
           </e>
           <e p="Util" t="Include">
             <e p="Draw.cs" t="Include" />

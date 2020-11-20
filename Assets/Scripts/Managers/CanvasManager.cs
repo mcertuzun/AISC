@@ -75,7 +75,7 @@ namespace Managers
         private void AddEnumList(Canvas childCanvas)
         {
             var checkParse = Enum.TryParse(childCanvas.name, out CanvasType canvasType);
-            (checkParse ? new Action(
+            (checkParse ? new System.Action(
                 () => allCanvasesEnum.Add(canvasType, childCanvas)) : () => Debug.LogWarning("Warning: CanvasType Enum name is not compatible with the canvas name."))();
         }
 

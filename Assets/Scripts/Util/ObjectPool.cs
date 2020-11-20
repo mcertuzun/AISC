@@ -17,8 +17,8 @@ namespace Util
         }
 	    
         private static List<GameObject> tempList = new List<GameObject>();
-        public Dictionary<GameObject, List <GameObject>> pooledObjects = new Dictionary<GameObject, List<GameObject>>();
-        public Dictionary<GameObject, GameObject> spawnedObjects = new Dictionary<GameObject, GameObject>();
+        Dictionary<GameObject, List <GameObject>> pooledObjects = new Dictionary<GameObject, List<GameObject>>();
+        Dictionary<GameObject, GameObject> spawnedObjects = new Dictionary<GameObject, GameObject>();
         
         public StartupPoolMode startupPoolMode;
         public StartupPool[] startupPools;

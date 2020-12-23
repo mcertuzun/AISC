@@ -7,9 +7,10 @@ namespace StateMachineAI.States
     public class StateController : MonoBehaviour
     {
         public States.State currentState;
+        public States.State remainState;
+
         public EnemyStats enemyStats;
         public Transform eyes;
-        public States.State remainState;
 
         [HideInInspector] public NavMeshAgent navMeshAgent;
         [HideInInspector] public List<Transform> wayPointList;
@@ -58,7 +59,7 @@ namespace StateMachineAI.States
             if (nextState != remainState) 
             {
                 currentState = nextState;
-                OnExitState ();
+                OnExitState();
             }
         }
 

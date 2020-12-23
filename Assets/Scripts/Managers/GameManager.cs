@@ -110,6 +110,11 @@ namespace Managers
         #endregion
 
 
+        public void TryIt()
+        {
+            Debug.Log("It is working");
+        }
+
         // Update is called once per frame
         private void Update()
         {

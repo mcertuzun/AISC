@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace StateMachineAI.States
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(menuName = "PluggableAI/State")]
     public class State : ScriptableObject
     {
         public Action[] actions;

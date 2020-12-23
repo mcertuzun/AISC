@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoverageReport scope="Summary">
+  <Summary>
+    <Generatedon>11/22/2020 - 2:57:53 AM</Generatedon>
+    <Parser>MultiReportParser (3x OpenCoverParser)</Parser>
+    <Assemblies>5</Assemblies>
+    <Classes>72</Classes>
+    <Files>64</Files>
+    <Coveredlines>167</Coveredlines>
+    <Uncoveredlines>6010</Uncoveredlines>
+    <Coverablelines>6177</Coverablelines>
+    <Totallines>12369</Totallines>
+    <Linecoverage>2.7</Linecoverage>
+    <Coveredbranches>0</Coveredbranches>
+    <Totalbranches>0</Totalbranches>
+  </Summary>
+  <Coverage>
+    <Assembly name="Assembly-CSharp" classes="57" coverage="0.5" coveredlines="25" coverablelines="4572" totallines="10816" branchcoverage="" coveredbranches="0" totalbranches="0">
+      <Class name="Controllers.CameraController" coverage="0" coveredlines="0" coverablelines="23" totallines="56" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Controllers.PlayerController" coverage="0" coveredlines="0" coverablelines="2" totallines="14" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DefaultNamespace.Employe" coverage="0" coveredlines="0" coverablelines="6" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DefaultNamespace.example" coverage="0" coveredlines="0" coverablelines="8" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DG.Tweening.DOTweenCYInstruction" coverage="0" coveredlines="0" coverablelines="44" totallines="301" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DG.Tweening.DOTweenModuleAudio" coverage="0" coveredlines="0" coverablelines="56" totallines="202" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DG.Tweening.DOTweenModulePhysics" coverage="0" coveredlines="0" coverablelines="83" totallines="216" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DG.Tweening.DOTweenModulePhysics2D" coverage="0" coveredlines="0" coverablelines="40" totallines="107" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DG.Tweening.DOTweenModuleSprite" coverage="0" coveredlines="0" coverablelines="34" totallines="93" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DG.Tweening.DOTweenModuleUI" coverage="0" coveredlines="0" coverablelines="252" totallines="609" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DG.Tweening.DOTweenModuleUnityVersion" coverage="0" coveredlines="0" coverablelines="82" totallines="301" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DG.Tweening.DOTweenModuleUtils" coverage="0" coveredlines="0" coverablelines="33" totallines="155" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Draw" coverage="0" coveredlines="0" coverablelines="302" totallines="613" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Enemy" coverage="100" coveredlines="3" coverablelines="3" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="GameEventSystem.GameEvent" coverage="64.2" coveredlines="9" coverablelines="14" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="GameEventSystem.GameEventListener" coverage="66.6" coveredlines="6" coverablelines="9" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="GameEventSystem.Player" coverage="100" coveredlines="7" coverablelines="7" totallines="22" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="HapticFeedback" coverage="0" coveredlines="0" coverablelines="2" totallines="28" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="IconPreview" coverage="0" coveredlines="0" coverablelines="11" totallines="26" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="InputSystem.InputController" coverage="0" coveredlines="0" coverablelines="44" totallines="75" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="InputSystem.InputData" coverage="0" coveredlines="0" coverablelines="38" totallines="97" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Managers.CanvasManager" coverage="0" coveredlines="0" coverablelines="73" totallines="143" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Managers.GameManager" coverage="0" coveredlines="0" coverablelines="55" totallines="123" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Managers.LevelManager" coverage="0" coveredlines="0" coverablelines="28" totallines="120" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Managers.SaveLoadManager" coverage="0" coveredlines="0" coverablelines="48" totallines="97" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.DataBaseExample" coverage="0" coveredlines="0" coverablelines="15" totallines="179" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.SerializableDictionary.DrawableDictionary" coverage="0" coveredlines="0" coverablelines="1" totallines="489" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.SerializableDictionary.IDAttribute" coverage="0" coveredlines="0" coverablelines="5" totallines="22" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.SerializableDictionary.ReorderableList" coverage="0" coveredlines="0" coverablelines="1128" totallines="1957" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.SerializableDictionary.SerializableDictionaryBase[TKey,TValue]" coverage="0" coveredlines="0" coverablelines="210" totallines="489" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.DataTypes.Color32Save" coverage="0" coveredlines="0" coverablelines="12" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.DataTypes.ColorSave" coverage="0" coveredlines="0" coverablelines="12" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.DataTypes.MeshSave" coverage="0" coveredlines="0" coverablelines="22" totallines="49" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.DataTypes.QuaternionSave" coverage="0" coveredlines="0" coverablelines="36" totallines="69" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.DataTypes.Vector2Save" coverage="0" coveredlines="0" coverablelines="62" totallines="115" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.DataTypes.Vector3Save" coverage="0" coveredlines="0" coverablelines="75" totallines="132" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.DataTypes.Vector4Save" coverage="0" coveredlines="0" coverablelines="90" totallines="149" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.Encoders.SimpleEncoder" coverage="0" coveredlines="0" coverablelines="56" totallines="105" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.SaveGame" coverage="0" coveredlines="0" coverablelines="451" totallines="1042" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.Serializers.BinarySerializer" coverage="0" coveredlines="0" coverablelines="22" totallines="39" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.Serializers.JsonSerializer" coverage="0" coveredlines="0" coverablelines="33" totallines="62" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SaveLoad.Serializers.XMLSerializer" coverage="0" coveredlines="0" coverablelines="22" totallines="41" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.Actions.AttackAction" coverage="0" coveredlines="0" coverablelines="12" totallines="33" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.Actions.ChaseAction" coverage="0" coveredlines="0" coverablelines="7" totallines="22" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.Actions.PatrolAction" coverage="0" coveredlines="0" coverablelines="11" totallines="24" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.Decision.ActiveStateDecision" coverage="0" coveredlines="0" coverablelines="4" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.Decision.LookDecision" coverage="0" coveredlines="0" coverablelines="13" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.Decision.ScanDecision" coverage="0" coveredlines="0" coverablelines="9" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.EnemyStats" coverage="0" coveredlines="0" coverablelines="9" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.States.State" coverage="0" coveredlines="0" coverablelines="19" totallines="42" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StateMachineAI.States.StateController" coverage="0" coveredlines="0" coverablelines="40" totallines="76" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Util.DrawExample" coverage="0" coveredlines="0" coverablelines="16" totallines="48" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Util.Helper" coverage="0" coveredlines="0" coverablelines="25" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Util.ObjectPool" coverage="0" coveredlines="0" coverablelines="251" totallines="544" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Util.ObjectPoolExtensions" coverage="0" coveredlines="0" coverablelines="125" totallines="544" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Util.PlayerPrefsX" coverage="0" coveredlines="0" coverablelines="463" totallines="726" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Util.PoolTest" coverage="0" coveredlines="0" coverablelines="19" totallines="64" branchcoverage="" coveredbranches="0" totalbranches="0" />
+    </Assembly>
+    <Assembly name="Assembly-CSharp-Editor" classes="5" coverage="0" coveredlines="0" coverablelines="698" totallines="1219" branchcoverage="" coveredbranches="0" totalbranches="0">
+      <Class name="RotaryHeart.Lib.SerializableDictionary.Constants" coverage="0" coveredlines="0" coverablelines="23" totallines="56" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.SerializableDictionary.Definer" coverage="0" coveredlines="0" coverablelines="4" totallines="19" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.SerializableDictionary.DictionaryPropertyDrawer" coverage="0" coveredlines="0" coverablelines="623" totallines="1024" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.SerializableDictionary.PreferencesWindow" coverage="0" coveredlines="0" coverablelines="41" totallines="85" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.SerializableDictionary.SupportWindow" coverage="0" coveredlines="0" coverablelines="7" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" />
+    </Assembly>
+    <Assembly name="Coffee.UIParticle" classes="2" coverage="0" coveredlines="0" coverablelines="357" totallines="735" branchcoverage="" coveredbranches="0" totalbranches="0">
+      <Class name="Coffee.UIExtensions.UIParticle" coverage="0" coveredlines="0" coverablelines="294" totallines="578" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Coffee.UIExtensions.UIParticleOverlayCamera" coverage="0" coveredlines="0" coverablelines="63" totallines="157" branchcoverage="" coveredbranches="0" totalbranches="0" />
+    </Assembly>
+    <Assembly name="Coffee.UIParticle.Editor" classes="6" coverage="31.2" coveredlines="142" coverablelines="454" totallines="2629" branchcoverage="" coveredbranches="0" totalbranches="0">
+      <Class name="Coffee.AsmdefEx.Core" coverage="55.3" coveredlines="73" coverablelines="132" totallines="468" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Coffee.AsmdefEx.OpenSesameCompiler" coverage="35.7" coveredlines="25" coverablelines="70" totallines="468" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Coffee.AsmdefEx.RecompileRequest" coverage="0" coveredlines="0" coverablelines="9" totallines="468" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Coffee.AsmdefEx.ReflectionExtensions" coverage="85.1" coveredlines="23" coverablelines="27" totallines="468" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Coffee.AsmdefEx.Settings" coverage="56.7" coveredlines="21" coverablelines="37" totallines="468" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Coffee.UIExtensions.UIParticleEditor" coverage="0" coveredlines="0" coverablelines="179" totallines="289" branchcoverage="" coveredbranches="0" totalbranches="0" />
+    </Assembly>
+    <Assembly name="RotaryHeart" classes="2" coverage="0" coveredlines="0" coverablelines="96" totallines="213" branchcoverage="" coveredbranches="0" totalbranches="0">
+      <Class name="RotaryHeart.Lib.BaseSupportWindow" coverage="0" coveredlines="0" coverablelines="72" totallines="165" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RotaryHeart.Lib.Definer" coverage="0" coveredlines="0" coverablelines="24" totallines="48" branchcoverage="" coveredbranches="0" totalbranches="0" />
+    </Assembly>
+  </Coverage>
+</CoverageReport>

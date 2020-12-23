@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace StateMachineAI.Actions
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(menuName = "PluggableAI/Actions/Patrol")]
     public class PatrolAction : Action
     {
         public override void Act(StateController controller)

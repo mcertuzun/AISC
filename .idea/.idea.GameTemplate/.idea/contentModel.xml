@@ -8,6 +8,48 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Champy" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="ActionHook.cs" t="Include" />
+            <e p="Behavior" t="Include">
+              <e p="Conditions" t="Include">
+                <e p="Condition.cs" t="Include" />
+                <e p="LookCondition.cs" t="Include" />
+              </e>
+              <e p="EnemyStats.cs" t="Include" />
+              <e p="Mono Actions" t="Include">
+                <e p="Actıon.cs" t="Include" />
+                <e p="InputAxis.cs" t="Include" />
+                <e p="InputButton.cs" t="Include" />
+              </e>
+              <e p="State Actions" t="Include">
+                <e p="ChaseAction.cs" t="Include" />
+                <e p="StateActions.cs" t="Include" />
+              </e>
+              <e p="State.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="BehaviorEditor" t="Include">
+                <e p="BehaviorEditor.cs" t="Include" />
+                <e p="EditorSettings.cs" t="Include" />
+                <e p="Nodes" t="Include">
+                  <e p="BaseNode.cs" t="Include" />
+                  <e p="CommentNode.cs" t="Include" />
+                  <e p="DrawNode.cs" t="Include" />
+                  <e p="PortalNode.cs" t="Include" />
+                  <e p="StateNode.cs" t="Include" />
+                  <e p="TransitionNode.cs" t="Include" />
+                </e>
+              </e>
+              <e p="BehaviorGraph.cs" t="Include" />
+              <e p="Custom Inspectors" t="Include">
+                <e p="StateGUI.cs" t="Include" />
+              </e>
+            </e>
+            <e p="StateManager.cs" t="Include" />
+            <e p="Transition.cs" t="Include" />
+          </e>
+        </e>
         <e p="Demigiant" t="Include">
           <e p="DOTween" t="Include">
             <e p="Modules" t="Include">
@@ -23,7 +65,8 @@
           </e>
         </e>
         <e p="Resources" t="Include">
-          <e p="GameEvent.cs" t="Include" />
+          <e p="connections.xml" t="Include" />
+          <e p="nodes.xml" t="Include" />
           <e p="Shaders" t="Include">
             <e p="GradientSkybox.shader" t="Include" />
           </e>
@@ -41,8 +84,10 @@
           </e>
           <e p="example.cs" t="Include" />
           <e p="GameEventSystem" t="Include">
-            <e p="DemoEventListener.cs" t="Include" />
+            <e p="Enemy.cs" t="Include" />
+            <e p="GameEvent.cs" t="Include" />
             <e p="GameEventListener.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
           </e>
           <e p="InputSystem" t="Include">
             <e p="InputController.cs" t="Include" />
@@ -93,6 +138,17 @@
               <e p="ScanDecision.cs" t="Include" />
             </e>
             <e p="EnemyStats.cs" t="Include" />
+            <e p="NodeEditor" t="Include">
+              <e p="Connection.cs" t="Include" />
+              <e p="ConnectionPoint.cs" t="Include" />
+              <e p="Node.cs" t="Include" />
+              <e p="NodeBasedEditor.cs" t="Include" />
+              <e p="Nodes" t="Include">
+                <e p="BaseNode.cs" t="Include" />
+                <e p="NodeEditor.cs" t="Include" />
+                <e p="StateNode.cs" t="Include" />
+              </e>
+            </e>
             <e p="States" t="Include">
               <e p="State.cs" t="Include" />
               <e p="StateController.cs" t="Include" />

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ArrayOfConnection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Connection>
+    <inPoint>
+      <id>fa63d6e2-1fc5-448f-8a96-9928379c6be7</id>
+    </inPoint>
+    <outPoint>
+      <id>6931a992-895f-413d-ba0a-d1e663e1c8e2</id>
+    </outPoint>
+  </Connection>
+</ArrayOfConnection>

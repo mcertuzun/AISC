@@ -198,9 +198,6 @@ namespace SaveLoad
         /// <summary>
         /// Saves data using the identifier.
         /// </summary>
-        /// <param name="identifier">Identifier.</param>
-        /// <param name="obj">Object to save.</param>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Save<T>(string identifier, T obj)
         {
             Save<T>(identifier, obj, Encode, EncodePassword, Serializer, Encoder, DefaultEncoding, SavePath);
@@ -209,10 +206,6 @@ namespace SaveLoad
         /// <summary>
         /// Save the specified identifier, obj, encode and encodePassword.
         /// </summary>
-        /// <param name="identifier">Identifier.</param>
-        /// <param name="obj">Object.</param>
-        /// <param name="encode">If set to <c>true</c> encode.</param>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Save<T>(string identifier, T obj, bool encode)
         {
             Save<T>(identifier, obj, encode, EncodePassword, Serializer, Encoder, DefaultEncoding, SavePath);
@@ -221,10 +214,6 @@ namespace SaveLoad
         /// <summary>
         /// Save the specified identifier, obj and encodePassword.
         /// </summary>
-        /// <param name="identifier">Identifier.</param>
-        /// <param name="obj">Object.</param>
-        /// <param name="encodePassword">Encode password.</param>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Save<T>(string identifier, T obj, string encodePassword)
         {
             Save<T>(identifier, obj, Encode, encodePassword, Serializer, Encoder, DefaultEncoding, SavePath);
@@ -234,10 +223,6 @@ namespace SaveLoad
         /// <summary>
         /// Save the specified identifier, obj and serializer.
         /// </summary>
-        /// <param name="identifier">Identifier.</param>
-        /// <param name="obj">Object.</param>
-        /// <param name="serializer">Serializer.</param>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Save<T>(string identifier, T obj, ISerializer serializer)
         {
             Save<T>(identifier, obj, Encode, EncodePassword, serializer, Encoder, DefaultEncoding, SavePath);
@@ -246,10 +231,6 @@ namespace SaveLoad
         /// <summary>
         /// Save the specified identifier, obj and encoder.
         /// </summary>
-        /// <param name="identifier">Identifier.</param>
-        /// <param name="obj">Object.</param>
-        /// <param name="encoder">Encoder.</param>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Save<T>(string identifier, T obj, IEncoder encoder)
         {
             Save<T>(identifier, obj, Encode, EncodePassword, Serializer, encoder, DefaultEncoding, SavePath);
@@ -258,10 +239,6 @@ namespace SaveLoad
         /// <summary>
         /// Save the specified identifier, obj and encoding.
         /// </summary>
-        /// <param name="identifier">Identifier.</param>
-        /// <param name="obj">Object.</param>
-        /// <param name="encoding">Encoding.</param>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Save<T>(string identifier, T obj, Encoding encoding)
         {
             Save<T>(identifier, obj, Encode, EncodePassword, Serializer, Encoder, encoding, SavePath);
@@ -270,10 +247,6 @@ namespace SaveLoad
         /// <summary>
         /// Save the specified identifier, obj and savePath.
         /// </summary>
-        /// <param name="identifier">Identifier.</param>
-        /// <param name="obj">Object.</param>
-        /// <param name="savePath">Save path.</param>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Save<T>(string identifier, T obj, SaveGamePath savePath)
         {
             Save<T>(identifier, obj, Encode, EncodePassword, Serializer, Encoder, DefaultEncoding, savePath);
@@ -282,15 +255,6 @@ namespace SaveLoad
         /// <summary>
         /// Saves data using the identifier.
         /// </summary>
-        /// <param name="identifier">Identifier.</param>
-        /// <param name="obj">Object to save.</param>
-        /// <param name="encode">Encrypt the data?</param>
-        /// <param name="password">Encryption Password.</param>
-        /// <param name="serializer">Serializer.</param>
-        /// <param name="encoder">Encoder.</param>
-        /// <param name="encoding">Encoding.</param>
-        /// <param name="path">Path.</param>
-        /// <typeparam name="T">The 1st type parameter.</typeparam>
         public static void Save<T>(string identifier, T obj, bool encode, string password, ISerializer serializer, IEncoder encoder, Encoding encoding, SaveGamePath path)
         {
             if (string.IsNullOrEmpty(identifier))

@@ -9,45 +9,90 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Champy" t="Include">
-          <e p="Scripts" t="Include">
-            <e p="ActionHook.cs" t="Include" />
-            <e p="Behavior" t="Include">
-              <e p="Conditions" t="Include">
-                <e p="Condition.cs" t="Include" />
-                <e p="LookCondition.cs" t="Include" />
+          <e p="AI" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ActionHook.cs" t="Include" />
+              <e p="Behavior" t="Include">
+                <e p="Conditions" t="Include">
+                  <e p="Condition.cs" t="Include" />
+                  <e p="LookCondition.cs" t="Include" />
+                </e>
+                <e p="EnemyStats.cs" t="Include" />
+                <e p="Mono Actions" t="Include">
+                  <e p="Actıon.cs" t="Include" />
+                  <e p="InputAxis.cs" t="Include" />
+                  <e p="InputButton.cs" t="Include" />
+                </e>
+                <e p="State Actions" t="Include">
+                  <e p="ChaseAction.cs" t="Include" />
+                  <e p="StateActions.cs" t="Include" />
+                </e>
+                <e p="State.cs" t="Include" />
               </e>
-              <e p="EnemyStats.cs" t="Include" />
-              <e p="Mono Actions" t="Include">
-                <e p="Actıon.cs" t="Include" />
-                <e p="InputAxis.cs" t="Include" />
-                <e p="InputButton.cs" t="Include" />
-              </e>
-              <e p="State Actions" t="Include">
-                <e p="ChaseAction.cs" t="Include" />
-                <e p="StateActions.cs" t="Include" />
-              </e>
-              <e p="State.cs" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="BehaviorEditor" t="Include">
-                <e p="BehaviorEditor.cs" t="Include" />
-                <e p="EditorSettings.cs" t="Include" />
-                <e p="Nodes" t="Include">
-                  <e p="BaseNode.cs" t="Include" />
-                  <e p="CommentNode.cs" t="Include" />
-                  <e p="DrawNode.cs" t="Include" />
-                  <e p="PortalNode.cs" t="Include" />
-                  <e p="StateNode.cs" t="Include" />
-                  <e p="TransitionNode.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="BehaviorEditor" t="Include">
+                  <e p="BehaviorEditor.cs" t="Include" />
+                  <e p="EditorSettings.cs" t="Include" />
+                  <e p="Nodes" t="Include">
+                    <e p="BaseNode.cs" t="Include" />
+                    <e p="CommentNode.cs" t="Include" />
+                    <e p="DrawNode.cs" t="Include" />
+                    <e p="PortalNode.cs" t="Include" />
+                    <e p="StateNode.cs" t="Include" />
+                    <e p="TransitionNode.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="BehaviorGraph.cs" t="Include" />
+                <e p="Custom Inspectors" t="Include">
+                  <e p="StateGUI.cs" t="Include" />
                 </e>
               </e>
-              <e p="BehaviorGraph.cs" t="Include" />
-              <e p="Custom Inspectors" t="Include">
-                <e p="StateGUI.cs" t="Include" />
+              <e p="StateManager.cs" t="Include" />
+              <e p="Transition.cs" t="Include" />
+            </e>
+          </e>
+          <e p="GameStarter" t="Include">
+            <e p="Camera" t="Include">
+              <e p="CameraController.cs" t="Include" />
+            </e>
+            <e p="Input" t="Include">
+              <e p="InputController.cs" t="Include" />
+              <e p="InputData.cs" t="Include" />
+            </e>
+            <e p="SaveLoadSerialization" t="Include">
+              <e p="DataTypes" t="Include">
+                <e p="Color32Save.cs" t="Include" />
+                <e p="ColorSave.cs" t="Include" />
+                <e p="MeshSave.cs" t="Include" />
+                <e p="QuaternionSave.cs" t="Include" />
+                <e p="Vector2Save.cs" t="Include" />
+                <e p="Vector3Save.cs" t="Include" />
+                <e p="Vector4Save.cs" t="Include" />
+              </e>
+              <e p="Encoders" t="Include">
+                <e p="IEncoder.cs" t="Include" />
+                <e p="SimpleEncoder.cs" t="Include" />
+              </e>
+              <e p="SaveGame.cs" t="Include" />
+              <e p="Serializers" t="Include">
+                <e p="BinarySerializer.cs" t="Include" />
+                <e p="FullSerializer" t="Include">
+                  <e p="FullSerializer.xml" t="Include" />
+                </e>
+                <e p="ISerializer.cs" t="Include" />
+                <e p="JsonSerializer.cs" t="Include" />
+                <e p="XmlSerializer.cs" t="Include" />
               </e>
             </e>
-            <e p="StateManager.cs" t="Include" />
-            <e p="Transition.cs" t="Include" />
+            <e p="SaveLoafPrefs" t="Include">
+              <e p="PlayerPrefsX.cs" t="Include" />
+              <e p="SaveLoadManager.cs" t="Include" />
+            </e>
+            <e p="UI" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="CanvasManager.cs" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
         <e p="Demigiant" t="Include">
@@ -72,10 +117,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Controllers" t="Include">
-            <e p="CameraController.cs" t="Include" />
-            <e p="PlayerController.cs" t="Include" />
-          </e>
           <e p="Enums" t="Include">
             <e p="CanvasType.cs" t="Include" />
             <e p="GameState.cs" t="Include" />
@@ -89,40 +130,9 @@
             <e p="GameEventListener.cs" t="Include" />
             <e p="Player.cs" t="Include" />
           </e>
-          <e p="InputSystem" t="Include">
-            <e p="InputController.cs" t="Include" />
-            <e p="InputData.cs" t="Include" />
-          </e>
           <e p="Managers" t="Include">
-            <e p="CanvasManager.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
-            <e p="SaveLoadManager.cs" t="Include" />
-          </e>
-          <e p="SaveLoad" t="Include">
-            <e p="DataTypes" t="Include">
-              <e p="Color32Save.cs" t="Include" />
-              <e p="ColorSave.cs" t="Include" />
-              <e p="MeshSave.cs" t="Include" />
-              <e p="QuaternionSave.cs" t="Include" />
-              <e p="Vector2Save.cs" t="Include" />
-              <e p="Vector3Save.cs" t="Include" />
-              <e p="Vector4Save.cs" t="Include" />
-            </e>
-            <e p="Encoders" t="Include">
-              <e p="IEncoder.cs" t="Include" />
-              <e p="SimpleEncoder.cs" t="Include" />
-            </e>
-            <e p="SaveGame.cs" t="Include" />
-            <e p="Serializers" t="Include">
-              <e p="BinarySerializer.cs" t="Include" />
-              <e p="FullSerializer" t="Include">
-                <e p="FullSerializer.xml" t="Include" />
-              </e>
-              <e p="ISerializer.cs" t="Include" />
-              <e p="JsonSerializer.cs" t="Include" />
-              <e p="XmlSerializer.cs" t="Include" />
-            </e>
           </e>
           <e p="StateMachineAI" t="Include">
             <e p="Actions" t="Include">
@@ -161,7 +171,6 @@
             <e p="HapticFeedback.cs" t="Include" />
             <e p="Helper.cs" t="Include" />
             <e p="ObjectPool.cs" t="Include" />
-            <e p="PlayerPrefsX.cs" t="Include" />
             <e p="PoolTest.cs" t="Include" />
           </e>
         </e>

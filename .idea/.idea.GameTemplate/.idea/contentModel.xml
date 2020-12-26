@@ -51,6 +51,12 @@
               <e p="Transition.cs" t="Include" />
             </e>
           </e>
+          <e p="Attributes" t="Include">
+            <e p="ConditionalHideAttribute.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="ConditionalHidePropertyDrawer.cs" t="Include" />
+            </e>
+          </e>
           <e p="GameStarter" t="Include">
             <e p="Camera" t="Include">
               <e p="CameraController.cs" t="Include" />
@@ -118,8 +124,6 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Enums" t="Include">
-            <e p="CanvasType.cs" t="Include" />
-            <e p="GameState.cs" t="Include" />
             <e p="ShakeType.cs" t="Include" />
             <e p="StartType.cs" t="Include" />
           </e>

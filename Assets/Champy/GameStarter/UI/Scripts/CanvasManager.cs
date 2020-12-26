@@ -1,43 +1,58 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Enums;
+using Managers;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-namespace Managers
+namespace Champy.UI
 {
     public class CanvasManager : MonoBehaviour
     {
+        [Serializable]
+        public enum CanvasType
+        {
+            SplashCanvas,
+            MainCanvas,
+            InGameCanvas,
+            SettingsCanvas,
+            WinCanvas,
+            FailCanvas,
+            Empty
+        }
+
         [Header("General Options")] [Tooltip("Choose the begging action")]
-        public StartType chooseStartType;
+        private static StartType startType;
 
-        [Header("Canvases")] private Dictionary<CanvasType, Canvas> allCanvasesEnum;
-        private Dictionary<StartType, List<Canvas>> canvasListEnum;
+        [Header("Canvases")] private static Dictionary<CanvasType, Canvas> canvasList;
 
-        #region DontDestroyOnLoad
+        #region Instantiate
 
         private static CanvasManager _instance;
 
         private void Awake()
         {
-            if (_instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instance = this;
-                allCanvasesEnum = new Dictionary<CanvasType, Canvas>();
-                canvasListEnum = new Dictionary<StartType, List<Canvas>>();
-                DontDestroyOnLoad(gameObject);
-            }
+            canvasList = new Dictionary<CanvasType, Canvas>();
+            this.Instantiate();
         }
 
-        private void OnDestroy()
+        private void Instantiate()
         {
-            if (_instance == this) _instance = null;
+            if (_instance == null)
+            {
+                _instance = this;
+            }
+            else if (this != _instance)
+            {
+                Debug.LogError($"Duplicated {this.name} destroyed!");
+                Destroy(this.gameObject);
+            }
         }
 
         #endregion
+
+        #region Setup Canvas
 
         private void OnEnable()
         {
@@ -49,16 +64,24 @@ namespace Managers
             GameManager.CanvasManager -= OpenCanvasManager;
         }
 
-        private void OpenCanvasManager()
+        private void OpenCanvasManager(StartType type)
         {
+            startType = type;
             CanvasInitializer();
-            InitStartingOptions();
+            SetActivations();
         }
 
-        // Find canvases from this gameObject 
+        // Find child canvases from the MasterCanvas 
         private void CanvasInitializer()
         {
             var childCanvases = this.gameObject.GetComponentsInChildren<Canvas>();
+            canvasList.Clear();
+
+            if (EventSystem.current == null)
+            {
+                var eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
+                Instantiate(eventSystem);
+            }
 
             if (childCanvases.Length == 0)
             {
@@ -66,81 +89,109 @@ namespace Managers
                 return;
             }
 
-            allCanvasesEnum.Clear();
             foreach (var childCanvas in childCanvases)
             {
-                AddEnumList(childCanvas);
-            }
-        }
-
-        private void AddEnumList(Canvas childCanvas)
-        {
-            var checkParse = Enum.TryParse(childCanvas.name, out CanvasType canvasType);
-            (checkParse
-                ? new Action(
-                    () => allCanvasesEnum.Add(canvasType, childCanvas))
-                : () => Debug.LogWarning("Warning: CanvasType Enum name is not compatible with the canvas name."))();
-        }
-
-        //TODO: Optimize InitStartingOptions() Method
-        private void InitStartingOptions()
-        {
-            var startTypes = Enum.GetValues(typeof(StartType));
-
-            foreach (StartType startType in startTypes)
-            {
-                var list = new List<Canvas>
+                var checkParse = Enum.TryParse(childCanvas.name, out CanvasType canvasType);
+                if (!checkParse)
                 {
-                    allCanvasesEnum[CanvasType.InGameCanvas],
-                    allCanvasesEnum[CanvasType.WinCanvas],
-                    allCanvasesEnum[CanvasType.FailCanvas],
-                    allCanvasesEnum[CanvasType.SettingsCanvas]
-                };
-
-                switch (startType)
-                {
-                    case StartType.Menu:
-                        list.Add(allCanvasesEnum[CanvasType.MainCanvas]);
-                        break;
-                    case StartType.Splash:
-                        list.Add(allCanvasesEnum[CanvasType.SplashCanvas]);
-                        break;
-                    case StartType.Direct:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    Debug.LogWarning("Warning: CanvasType Enum name is not compatible with the canvas name.");
+                    continue;
                 }
 
-                canvasListEnum.Add(startType, list);
+                Debug.LogWarning($"canvastype {canvasType}");
+
+                AddCanvasList(canvasType, childCanvas);
             }
 
-            SetActivations();
+            Debug.Log($"Master has {canvasList.Count} canvas ");
+        }
+
+        private void AddCanvasList(CanvasType canvasType, Canvas childCanvas)
+        {
+            childCanvas.enabled = false;
+            childCanvas.gameObject.SetActive(true);
+            canvasList.Add(canvasType, childCanvas);
         }
 
         private void SetActivations()
         {
-            //Set gameObject is enabled or disabled.
-            foreach (var canvas in allCanvasesEnum.Values)
+            switch (startType)
             {
-                Debug.Log($"canvas list count: {canvasListEnum[chooseStartType].Count}");
-                canvas.gameObject.SetActive(canvasListEnum[chooseStartType].Contains(canvas));
+                case StartType.Menu:
+                    CanvasSwitch(CanvasType.MainCanvas);
+                    break;
+                case StartType.Splash:
+                    //Temporary solution for loading UI
+                    StartCoroutine(WaitSplash());
+                    break;
+                case StartType.Direct:
+                    CanvasSwitch(CanvasType.InGameCanvas);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
+        private IEnumerator WaitSplash()
+        {
+            CanvasSwitch(CanvasType.SplashCanvas);
+            yield return new WaitForSeconds(2f);
+            CanvasSwitch(CanvasType.MainCanvas);
+        }
+
+        private void CanvasSwitch(CanvasType canvasType)
+        {
+            foreach (var canvasValue in canvasList.Values)
+            {
+                if (!canvasList.ContainsKey(canvasType))
+                    continue;
+
+                canvasValue.enabled = (canvasValue == canvasList[canvasType]);
+                //Debug.Log($"name {canvasValue} is {canvasValue.enabled}");
+            }
+        }
+
+        #endregion
+
+        #region UI Action Methods
+
         public void OnClickStart()
         {
+            GameManager.StartGame();
+            CanvasSwitch(CanvasType.InGameCanvas);
         }
 
         public void OnClickRestart()
         {
+            CanvasSwitch(CanvasType.InGameCanvas);
         }
 
         public void OnClickPause()
         {
+            GameManager.PauseGame();
+            //CanvasSwitch(CanvasType.SettingsCanvas);
         }
 
         public void OnClickExit()
         {
+            Application.Quit();
         }
+
+        public void OnClickBack()
+        {
+            Application.Quit();
+        }
+
+        public void OnWinMenu()
+        {
+            CanvasSwitch(CanvasType.WinCanvas);
+        }
+
+        public void OnFailMenu()
+        {
+            CanvasSwitch(CanvasType.FailCanvas);
+        }
+
+        #endregion
     }
 }

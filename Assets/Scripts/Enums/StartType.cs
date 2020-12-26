@@ -6,10 +6,11 @@ namespace Enums
     {
         [Tooltip("Start the game from splash screen")]
         Splash,
-        [Tooltip("Start the game directly")]
-        Direct,
+        [Tooltip("Start the game directly")] Direct,
+
         [Tooltip("Start the game from menu canvas")]
         Menu,
-        
+
+        Empty
     }
 }

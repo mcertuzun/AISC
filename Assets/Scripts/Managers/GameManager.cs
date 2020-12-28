@@ -1,4 +1,5 @@
 ﻿using System;
+using Champy.Level;
 using Enums;
 using UnityEngine;
 
@@ -6,10 +7,6 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        public static event Action<StartType> CanvasManager;
-        public static event Action SaveLoadManager;
-        public static event Action LevelManager;
-
         //<summary>
         //State Pattern separates the states of a Game and these are in the GameState enum file.
         //<summary>
@@ -41,7 +38,6 @@ namespace Managers
                 }
             }
         }
-
 
         public static void PauseGame()
         {
@@ -82,6 +78,10 @@ namespace Managers
 
         #endregion
 
+        #region Variables
+
+        public static event Action<StartType> CanvasAction;
+
         [Header("Game Settings Config")]
         [Tooltip("Use 60 for games requiring smooth quick motion, set -1 to use platform default frame rate")]
         public int targetFrameRate = 60;
@@ -98,15 +98,16 @@ namespace Managers
         //General header for reference objects
         [Header("Object References")] public GameObject gameObjects;
 
+        #endregion
 
-        #region Managers Setup
+        #region Setup Managers
 
         private void ManagersSetup()
         {
             if (canvasActive)
-                CanvasSystem(CanvasManager);
+                CanvasSystem(CanvasAction);
             if (saveLoadActive)
-                SaveLoadSystem(SaveLoadManager);
+                CLevelManager.Instantiate();
         }
 
         private void CanvasSystem(Action<StartType> manager)
@@ -121,45 +122,21 @@ namespace Managers
             manager?.Invoke(chooseStartType);
         }
 
-        private void SaveLoadSystem(Action manager)
-        {
-            if (manager == null)
-            {
-                var tempManager = Resources.Load<GameObject>($"Managers/SaveLoadManager");
-                Debug.LogWarning($"{tempManager.name} Instantiated");
-                Instantiate(tempManager);
-            }
-
-            manager?.Invoke();
-        }
-
         #endregion
 
         // Update is called once per frame
         private void Update()
         {
-            Debug.Log($"current state = {gameState} and time scale {Time.timeScale}");
         }
 
-        private void GameStateHandler()
+        private void OnApplicationQuit()
         {
-            // switch (gameState)
-            // {
-            //     case GameState.Playing:
-            //         StartGame();
-            //         break;
-            //     case GameState.Paused:
-            //         PauseGame();
-            //         break;
-            //     case GameState.Prepare:
-            //         break;
-            //     case GameState.PreGameOver:
-            //         break;
-            //     case GameState.GameOver:
-            //         break;
-            //     default:
-            //         throw new ArgumentOutOfRangeException();
-            // }
+            CLevelManager.OnApplicationQuit();
+        }
+
+        private void OnApplicationPause(bool pauseStatus)
+        {
+            CLevelManager.OnApplicationPause(pauseStatus);
         }
     }
 }

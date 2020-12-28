@@ -61,38 +61,31 @@
             <e p="Camera" t="Include">
               <e p="CameraController.cs" t="Include" />
             </e>
-            <e p="Input" t="Include">
+            <e p="CInput" t="Include">
               <e p="InputController.cs" t="Include" />
               <e p="InputData.cs" t="Include" />
             </e>
-            <e p="SaveLoadSerialization" t="Include">
-              <e p="DataTypes" t="Include">
-                <e p="Color32Save.cs" t="Include" />
-                <e p="ColorSave.cs" t="Include" />
-                <e p="MeshSave.cs" t="Include" />
-                <e p="QuaternionSave.cs" t="Include" />
-                <e p="Vector2Save.cs" t="Include" />
-                <e p="Vector3Save.cs" t="Include" />
-                <e p="Vector4Save.cs" t="Include" />
-              </e>
-              <e p="Encoders" t="Include">
-                <e p="IEncoder.cs" t="Include" />
-                <e p="SimpleEncoder.cs" t="Include" />
-              </e>
-              <e p="SaveGame.cs" t="Include" />
-              <e p="Serializers" t="Include">
-                <e p="BinarySerializer.cs" t="Include" />
-                <e p="FullSerializer" t="Include">
-                  <e p="FullSerializer.xml" t="Include" />
-                </e>
-                <e p="ISerializer.cs" t="Include" />
-                <e p="JsonSerializer.cs" t="Include" />
-                <e p="XmlSerializer.cs" t="Include" />
-              </e>
+            <e p="Level" t="Include">
+              <e p="CLevelManager.cs" t="Include" />
             </e>
             <e p="SaveLoafPrefs" t="Include">
+              <e p="PlayerPrefsEditor" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="ImportPlayerPrefsWizard.cs" t="Include" />
+                  <e p="Mac" t="Include">
+                    <e p="Plist.cs" t="Include" />
+                  </e>
+                  <e p="PlayerPrefsEditor.cs" t="Include" />
+                  <e p="PlayerPrefsEditor.Editor.asmdef" t="Include" />
+                </e>
+                <e p="Runtime" t="Include">
+                  <e p="PlayerPrefsEditor.asmdef" t="Include" />
+                  <e p="PlayerPrefsUtility.cs" t="Include" />
+                  <e p="SimpleEncryption.cs" t="Include" />
+                </e>
+              </e>
               <e p="PlayerPrefsX.cs" t="Include" />
-              <e p="SaveLoadManager.cs" t="Include" />
+              <e p="SaveLoadPref.cs" t="Include" />
             </e>
             <e p="UI" t="Include">
               <e p="Scripts" t="Include">
@@ -215,17 +208,24 @@
           </e>
         </e>
         <e p="Thirdparty" t="Include">
-          <e p="ParticleEffectUI" t="Include">
+          <e p="ParticleEffectForUGUI-3.3.0" t="Include">
             <e p="Scripts" t="Include">
+              <e p="AnimatableProperty.cs" t="Include" />
+              <e p="BakingCamera.cs" t="Include" />
               <e p="Coffee.UIParticle.asmdef" t="Include" />
+              <e p="CombineInstanceEx.cs" t="Include" />
               <e p="Editor" t="Include">
-                <e p="AsmdefEx.cs" t="Include" />
+                <e p="AnimatedPropertiesEditor.cs" t="Include" />
                 <e p="Coffee.UIParticle.Editor.asmdef" t="Include" />
+                <e p="ImportSampleMenu.cs" t="Include" />
                 <e p="UIParticleEditor.cs" t="Include" />
                 <e p="UIParticleMenu.cs" t="Include" />
               </e>
+              <e p="MeshHelper.cs" t="Include" />
+              <e p="ModifiedMaterial.cs" t="Include" />
               <e p="UIParticle.cs" t="Include" />
-              <e p="UIParticleOverlayCamera.cs" t="Include" />
+              <e p="UIParticleUpdater.cs" t="Include" />
+              <e p="Utils.cs" t="Include" />
             </e>
             <e p="Shaders" t="Include">
               <e p="UIAdditive.shader" t="Include" />
@@ -269,6 +269,8 @@
       <e p="GameTemplate.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
+      <e p="PlayerPrefsEditor.csproj" t="IncludeRecursive" />
+      <e p="PlayerPrefsEditor.Editor.csproj" t="IncludeRecursive" />
       <e p="RotaryHeart.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>

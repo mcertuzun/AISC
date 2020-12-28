@@ -130,6 +130,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2628386625604636572, guid: ac4cfbc62c2c5ae4a88651964afe0db8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628386625604636572, guid: ac4cfbc62c2c5ae4a88651964afe0db8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628386625604636572, guid: ac4cfbc62c2c5ae4a88651964afe0db8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190461321689781163, guid: ac4cfbc62c2c5ae4a88651964afe0db8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190461321689781163, guid: ac4cfbc62c2c5ae4a88651964afe0db8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190461321689781163, guid: ac4cfbc62c2c5ae4a88651964afe0db8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8054868467667823928, guid: ac4cfbc62c2c5ae4a88651964afe0db8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -231,7 +255,7 @@ GameObject:
   - component: {fileID: 671586772}
   - component: {fileID: 671586771}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: InputManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,6 +279,8 @@ MonoBehaviour:
   isStationary: 0
   displacementVector: {x: 0, y: 0}
   deltaPosition: {x: 0, y: 0}
+  displacementVector2: {x: 0, y: 0}
+  deltaPosition2: {x: 0, y: 0}
 --- !u!4 &671586772
 Transform:
   m_ObjectHideFlags: 0
@@ -540,8 +566,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFrameRate: 60
-  saveLoadActive: 1
+  saveLoadActive: 0
   canvasActive: 1
+  chooseStartType: 2
   gameObjects: {fileID: 0}
 --- !u!4 &1362922109
 Transform:

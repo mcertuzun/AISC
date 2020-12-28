@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Champy.Level;
 using Enums;
 using Managers;
 using UnityEngine;
@@ -10,7 +11,8 @@ namespace Champy.UI
 {
     public class CanvasManager : MonoBehaviour
     {
-        [Serializable]
+        #region Variables
+
         public enum CanvasType
         {
             SplashCanvas,
@@ -23,17 +25,18 @@ namespace Champy.UI
         }
 
         [Header("General Options")] [Tooltip("Choose the begging action")]
-        private static StartType startType;
+        private static StartType _startType;
 
-        [Header("Canvases")] private static Dictionary<CanvasType, Canvas> canvasList;
+        [Header("Canvases")] private static Dictionary<CanvasType, Canvas> _canvasList;
+        private static CanvasManager _instance;
+
+        #endregion
 
         #region Instantiate
 
-        private static CanvasManager _instance;
-
         private void Awake()
         {
-            canvasList = new Dictionary<CanvasType, Canvas>();
+            _canvasList = new Dictionary<CanvasType, Canvas>();
             this.Instantiate();
         }
 
@@ -56,17 +59,17 @@ namespace Champy.UI
 
         private void OnEnable()
         {
-            GameManager.CanvasManager += OpenCanvasManager;
+            GameManager.CanvasAction += CanvasSetup;
         }
 
         private void OnDisable()
         {
-            GameManager.CanvasManager -= OpenCanvasManager;
+            GameManager.CanvasAction -= CanvasSetup;
         }
 
-        private void OpenCanvasManager(StartType type)
+        private void CanvasSetup(StartType type)
         {
-            startType = type;
+            _startType = type;
             CanvasInitializer();
             SetActivations();
         }
@@ -75,7 +78,7 @@ namespace Champy.UI
         private void CanvasInitializer()
         {
             var childCanvases = this.gameObject.GetComponentsInChildren<Canvas>();
-            canvasList.Clear();
+            _canvasList.Clear();
 
             if (EventSystem.current == null)
             {
@@ -103,19 +106,12 @@ namespace Champy.UI
                 AddCanvasList(canvasType, childCanvas);
             }
 
-            Debug.Log($"Master has {canvasList.Count} canvas ");
-        }
-
-        private void AddCanvasList(CanvasType canvasType, Canvas childCanvas)
-        {
-            childCanvas.enabled = false;
-            childCanvas.gameObject.SetActive(true);
-            canvasList.Add(canvasType, childCanvas);
+            Debug.Log($"Master has {_canvasList.Count} canvas ");
         }
 
         private void SetActivations()
         {
-            switch (startType)
+            switch (_startType)
             {
                 case StartType.Menu:
                     CanvasSwitch(CanvasType.MainCanvas);
@@ -132,6 +128,18 @@ namespace Champy.UI
             }
         }
 
+        private void AddCanvasList(CanvasType canvasType, Canvas childCanvas)
+        {
+            childCanvas.enabled = false;
+            childCanvas.gameObject.SetActive(true);
+            _canvasList.Add(canvasType, childCanvas);
+        }
+
+        #endregion
+
+        #region Methods
+
+        //TODO: Calculate splash waiting time later
         private IEnumerator WaitSplash()
         {
             CanvasSwitch(CanvasType.SplashCanvas);
@@ -141,14 +149,23 @@ namespace Champy.UI
 
         private void CanvasSwitch(CanvasType canvasType)
         {
-            foreach (var canvasValue in canvasList.Values)
+            foreach (var canvasValue in _canvasList.Values)
             {
-                if (!canvasList.ContainsKey(canvasType))
+                if (!_canvasList.ContainsKey(canvasType))
                     continue;
+                if (canvasValue != _canvasList[canvasType])
+                {
+                    canvasValue.enabled = false;
+                    continue;
+                }
 
-                canvasValue.enabled = (canvasValue == canvasList[canvasType]);
-                //Debug.Log($"name {canvasValue} is {canvasValue.enabled}");
+                canvasValue.enabled = true;
             }
+        }
+
+        private void OpenCanvas(CanvasType canvasType)
+        {
+            _canvasList[canvasType].enabled = true;
         }
 
         #endregion
@@ -157,8 +174,8 @@ namespace Champy.UI
 
         public void OnClickStart()
         {
-            GameManager.StartGame();
             CanvasSwitch(CanvasType.InGameCanvas);
+            OpenCanvas(CanvasType.WinCanvas);
         }
 
         public void OnClickRestart()
@@ -168,8 +185,17 @@ namespace Champy.UI
 
         public void OnClickPause()
         {
-            GameManager.PauseGame();
-            //CanvasSwitch(CanvasType.SettingsCanvas);
+            CanvasSwitch(CanvasType.SettingsCanvas);
+        }
+
+        public void OnClickNext()
+        {
+            StartCoroutine(CLevelManager.LoadNextScene());
+        }
+
+        public void OnClickBack()
+        {
+            StartCoroutine(CLevelManager.LoadPreviousScene());
         }
 
         public void OnClickExit()
@@ -177,17 +203,12 @@ namespace Champy.UI
             Application.Quit();
         }
 
-        public void OnClickBack()
-        {
-            Application.Quit();
-        }
-
-        public void OnWinMenu()
+        public void OpenWinMenu()
         {
             CanvasSwitch(CanvasType.WinCanvas);
         }
 
-        public void OnFailMenu()
+        public void OpenFailMenu()
         {
             CanvasSwitch(CanvasType.FailCanvas);
         }

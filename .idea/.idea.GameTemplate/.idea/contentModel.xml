@@ -57,40 +57,38 @@
               <e p="ConditionalHidePropertyDrawer.cs" t="Include" />
             </e>
           </e>
-          <e p="GameStarter" t="Include">
-            <e p="Camera" t="Include">
-              <e p="CameraController.cs" t="Include" />
-            </e>
-            <e p="CInput" t="Include">
-              <e p="InputController.cs" t="Include" />
-              <e p="InputData.cs" t="Include" />
-            </e>
-            <e p="Level" t="Include">
-              <e p="CLevelManager.cs" t="Include" />
-            </e>
-            <e p="SaveLoafPrefs" t="Include">
-              <e p="PlayerPrefsEditor" t="Include">
-                <e p="Editor" t="Include">
-                  <e p="ImportPlayerPrefsWizard.cs" t="Include" />
-                  <e p="Mac" t="Include">
-                    <e p="Plist.cs" t="Include" />
-                  </e>
-                  <e p="PlayerPrefsEditor.cs" t="Include" />
-                  <e p="PlayerPrefsEditor.Editor.asmdef" t="Include" />
+          <e p="Camera" t="Include">
+            <e p="CameraController.cs" t="Include" />
+          </e>
+          <e p="CInput" t="Include">
+            <e p="InputController.cs" t="Include" />
+            <e p="InputData.cs" t="Include" />
+          </e>
+          <e p="Level" t="Include">
+            <e p="CLevelManager.cs" t="Include" />
+          </e>
+          <e p="SaveLoafPrefs" t="Include">
+            <e p="PlayerPrefsEditor" t="Include">
+              <e p="Editor" t="Include">
+                <e p="ImportPlayerPrefsWizard.cs" t="Include" />
+                <e p="Mac" t="Include">
+                  <e p="Plist.cs" t="Include" />
                 </e>
-                <e p="Runtime" t="Include">
-                  <e p="PlayerPrefsEditor.asmdef" t="Include" />
-                  <e p="PlayerPrefsUtility.cs" t="Include" />
-                  <e p="SimpleEncryption.cs" t="Include" />
-                </e>
+                <e p="PlayerPrefsEditor.cs" t="Include" />
+                <e p="PlayerPrefsEditor.Editor.asmdef" t="Include" />
               </e>
-              <e p="PlayerPrefsX.cs" t="Include" />
-              <e p="SaveLoadPref.cs" t="Include" />
+              <e p="Runtime" t="Include">
+                <e p="PlayerPrefsEditor.asmdef" t="Include" />
+                <e p="PlayerPrefsUtility.cs" t="Include" />
+                <e p="SimpleEncryption.cs" t="Include" />
+              </e>
             </e>
-            <e p="UI" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="CanvasManager.cs" t="Include" />
-              </e>
+            <e p="PlayerPrefsX.cs" t="Include" />
+            <e p="SaveLoadPref.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CanvasManager.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -116,11 +114,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Enums" t="Include">
-            <e p="ShakeType.cs" t="Include" />
-            <e p="StartType.cs" t="Include" />
-          </e>
-          <e p="example.cs" t="Include" />
           <e p="GameEventSystem" t="Include">
             <e p="Enemy.cs" t="Include" />
             <e p="GameEvent.cs" t="Include" />
@@ -129,7 +122,6 @@
           </e>
           <e p="Managers" t="Include">
             <e p="GameManager.cs" t="Include" />
-            <e p="LevelManager.cs" t="Include" />
           </e>
           <e p="StateMachineAI" t="Include">
             <e p="Actions" t="Include">
@@ -145,17 +137,6 @@
               <e p="ScanDecision.cs" t="Include" />
             </e>
             <e p="EnemyStats.cs" t="Include" />
-            <e p="NodeEditor" t="Include">
-              <e p="Connection.cs" t="Include" />
-              <e p="ConnectionPoint.cs" t="Include" />
-              <e p="Node.cs" t="Include" />
-              <e p="NodeBasedEditor.cs" t="Include" />
-              <e p="Nodes" t="Include">
-                <e p="BaseNode.cs" t="Include" />
-                <e p="NodeEditor.cs" t="Include" />
-                <e p="StateNode.cs" t="Include" />
-              </e>
-            </e>
             <e p="States" t="Include">
               <e p="State.cs" t="Include" />
               <e p="StateController.cs" t="Include" />

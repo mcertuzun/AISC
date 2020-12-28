@@ -1,15 +1,33 @@
 ﻿using System;
 using Champy.Level;
-using Enums;
+using StartType = Champy.UI.CanvasManager.StartType;
 using UnityEngine;
 
 namespace Managers
 {
     public class GameManager : MonoBehaviour
     {
-        //<summary>
-        //State Pattern separates the states of a Game and these are in the GameState enum file.
-        //<summary>
+        #region Variables
+
+        public static event Action<StartType> CanvasAction;
+
+        [Header("Game Settings Config")]
+        [Tooltip("Use 60 for games requiring smooth quick motion, set -1 to use platform default frame rate")]
+        public int targetFrameRate = 60;
+
+        [Tooltip("Open/Close save load system")]
+        public bool saveLoadActive = true;
+
+        [Tooltip("Open/Close UI system")] public bool canvasActive = true;
+        [ConditionalHide("canvasActive")] public StartType chooseStartType;
+
+        public static int GameCount { get; private set; } = 0;
+        private static bool _isRestart;
+
+        //General header for reference objects
+        [Header("Object References")] public GameObject gameObjects;
+
+        #endregion
 
         #region Game State
 
@@ -78,27 +96,6 @@ namespace Managers
 
         #endregion
 
-        #region Variables
-
-        public static event Action<StartType> CanvasAction;
-
-        [Header("Game Settings Config")]
-        [Tooltip("Use 60 for games requiring smooth quick motion, set -1 to use platform default frame rate")]
-        public int targetFrameRate = 60;
-
-        [Tooltip("Open/Close save load system")]
-        public bool saveLoadActive = true;
-
-        [Tooltip("Open/Close UI system")] public bool canvasActive = true;
-        [ConditionalHide("canvasActive")] public StartType chooseStartType;
-
-        public static int GameCount { get; private set; } = 0;
-        private static bool _isRestart;
-
-        //General header for reference objects
-        [Header("Object References")] public GameObject gameObjects;
-
-        #endregion
 
         #region Setup Managers
 

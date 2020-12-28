@@ -1,15 +1,14 @@
-﻿using DefaultNamespace;
-using StateMachineAI.States;
+﻿using StateMachineAI.States;
 using UnityEngine;
 
 namespace StateMachineAI.Actions
 {
-    [CreateAssetMenu (menuName = "PluggableAI/Actions/Chase")]
-    public class ChaseAction : Action 
+    [CreateAssetMenu(menuName = "PluggableAI/Actions/Chase")]
+    public class ChaseAction : Action
     {
         public override void Act(StateController controller)
         {
-            Chase (controller);    
+            Chase(controller);
         }
 
         private void Chase(StateController controller)
@@ -17,6 +16,5 @@ namespace StateMachineAI.Actions
             controller.navMeshAgent.destination = controller.chaseTarget.position;
             controller.navMeshAgent.isStopped = false;
         }
-
     }
 }

@@ -64,6 +64,7 @@
             <e p="InputController.cs" t="Include" />
             <e p="InputData.cs" t="Include" />
           </e>
+          <e p="GameManager.cs" t="Include" />
           <e p="Level" t="Include">
             <e p="CLevelManager.cs" t="Include" />
           </e>
@@ -90,6 +91,14 @@
             <e p="Scripts" t="Include">
               <e p="CanvasManager.cs" t="Include" />
             </e>
+          </e>
+          <e p="Util" t="Include">
+            <e p="Draw.cs" t="Include" />
+            <e p="DrawExample.cs" t="Include" />
+            <e p="HapticFeedback.cs" t="Include" />
+            <e p="Helper.cs" t="Include" />
+            <e p="ObjectPool.cs" t="Include" />
+            <e p="PoolTest.cs" t="Include" />
           </e>
         </e>
         <e p="Demigiant" t="Include">
@@ -120,9 +129,6 @@
             <e p="GameEventListener.cs" t="Include" />
             <e p="Player.cs" t="Include" />
           </e>
-          <e p="Managers" t="Include">
-            <e p="GameManager.cs" t="Include" />
-          </e>
           <e p="StateMachineAI" t="Include">
             <e p="Actions" t="Include">
               <e p="Actıon.cs" t="Include" />
@@ -142,14 +148,6 @@
               <e p="StateController.cs" t="Include" />
             </e>
             <e p="Transition.cs" t="Include" />
-          </e>
-          <e p="Util" t="Include">
-            <e p="Draw.cs" t="Include" />
-            <e p="DrawExample.cs" t="Include" />
-            <e p="HapticFeedback.cs" t="Include" />
-            <e p="Helper.cs" t="Include" />
-            <e p="ObjectPool.cs" t="Include" />
-            <e p="PoolTest.cs" t="Include" />
           </e>
         </e>
         <e p="Simple UI" t="Include">

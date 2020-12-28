@@ -1,15 +1,15 @@
 ﻿using System;
 using Champy.Level;
-using StartType = Champy.UI.CanvasManager.StartType;
+using Champy.UI;
 using UnityEngine;
 
-namespace Managers
+namespace Champy
 {
     public class GameManager : MonoBehaviour
     {
         #region Variables
 
-        public static event Action<StartType> CanvasAction;
+        public static event Action<CanvasManager.StartType> CanvasAction;
 
         [Header("Game Settings Config")]
         [Tooltip("Use 60 for games requiring smooth quick motion, set -1 to use platform default frame rate")]
@@ -19,7 +19,7 @@ namespace Managers
         public bool saveLoadActive = true;
 
         [Tooltip("Open/Close UI system")] public bool canvasActive = true;
-        [ConditionalHide("canvasActive")] public StartType chooseStartType;
+        [ConditionalHide("canvasActive")] public CanvasManager.StartType chooseStartType;
 
         public static int GameCount { get; private set; } = 0;
         private static bool _isRestart;
@@ -107,7 +107,7 @@ namespace Managers
                 CLevelManager.Instantiate();
         }
 
-        private void CanvasSystem(Action<StartType> manager)
+        private void CanvasSystem(Action<CanvasManager.StartType> manager)
         {
             if (manager == null)
             {

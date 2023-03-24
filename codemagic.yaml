@@ -93,7 +93,7 @@ workflows:
         - google_play
       vars:
         BUILD_SCRIPT: BuildAndroid
-        PACKAGE_NAME: "io.codemagic.unitysample"
+        PACKAGE_NAME: "$PACKAGE_NAME"
         GOOGLE_PLAY_TRACK: alpha
     scripts:
       - name: Activate Unity License
@@ -127,8 +127,7 @@ workflows:
             --password ${UNITY_PASSWORD?}
       email:
         recipients:
-          - user_1@example.com
-          - user_2@example.com
+          - mcertuzun@gmail.com
         notify:
           success: true
           failure: false
@@ -194,7 +193,7 @@ workflows:
         - google_play
       vars:
         BUILD_SCRIPT: BuildAndroid
-        PACKAGE_NAME: "io.codemagic.unitysample"
+        PACKAGE_NAME: "$PACKAGE_NAME"
     scripts:
       - name: Set build number and export Unity
         script: |
@@ -224,8 +223,7 @@ workflows:
               -nographics
       email:
         recipients:
-          - user_1@example.com
-          - user_2@example.com
+          - mcertuzun@gmail.com
         notify:
           success: true
           failure: false
@@ -244,7 +242,7 @@ workflows:
       vars:
         BUILD_SCRIPT: BuildMac
         UNITY_MAC_DIR: mac
-        BUNDLE_ID: "io.codemagic.unitysample"
+        BUNDLE_ID: "$BUNDLE_ID"
     scripts:
       - name: Activate Unity license
         script: |
